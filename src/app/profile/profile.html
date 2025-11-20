@@ -42,7 +42,7 @@
         <mat-card>
             <div class="information_header">
                 <mat-card-header>Informações do perfil</mat-card-header>
-                <button matFab extended><mat-icon>edit</mat-icon>Editar</button>
+                <button matButton="outlined"><mat-icon>edit</mat-icon>Editar</button>
             </div>
             <div class="information_body">
                 <div class="div1">
@@ -58,19 +58,83 @@
                     <p class="information_data">john@email.com</p>
                 </div>
             </div>
-            <p>O e-mail não pode ser alterado</p>
+            <span class="details">O e-mail não pode ser alterado</span>
         </mat-card>
 
         <mat-card>
-            <mat-card-header>Segurança</mat-card-header>
+            <div class="header_icon">
+                <mat-icon class="activity_icon security">lock</mat-icon>
+                <div>
+                    <mat-card-header>Segurança</mat-card-header>
+                    <span class="details">Gerencie sua senha</span>
+                </div>
+            </div>
+            <button matButton="outlined" class="profile_button">Alterar Senha</button>
         </mat-card>
 
         <mat-card>
-            <mat-card-header>Configurações gerais</mat-card-header>
+            <div class="header_icon">
+                <mat-icon class="activity_icon topics">settings</mat-icon>
+                <div>
+                    <mat-card-header>Configurações gerais</mat-card-header>
+                    <span class="details">Customise sua experiência</span>
+                </div>
+            </div> <br>
+
+            <div class="header_icon">
+                <mat-icon >notifications</mat-icon>
+                <p>Notificações</p>
+            </div>
+            <div class="config">
+                <div>
+                    <p>Notificações no E-mail</p>
+                    <span class="details">Receba atualizações no e-mail quando chegarem novos posts</span>
+                </div>
+                <mat-slide-toggle></mat-slide-toggle>
+            </div>
+            <div class="config">
+                <div>
+                    <p>Notificações no Navegador</p>
+                    <span class="details">Receba notificações pelo seu navegador</span>
+                </div>
+                <mat-slide-toggle></mat-slide-toggle>
+            </div>
+
+            <mat-divider></mat-divider>
+
+            <div class="header_icon">
+                <mat-icon>palette</mat-icon>
+                <p> Aparência</p>
+            </div>
+            <mat-form-field>
+                <mat-label>Tema</mat-label>
+                <mat-select value="Sistema">
+                    <mat-option value="Sistema">Sistema</mat-option>
+                    <mat-option value="Claro">Claro</mat-option>
+                    <mat-option value="Escuro">Escuro</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <span class="details">Escolha seu tema preferido</span>
+
+            <mat-divider></mat-divider>
+
+            <div class="header_icon">
+                <mat-icon>language</mat-icon>
+                <p> Idioma</p>
+            </div>
+            <mat-form-field>
+                <mat-label>Idioma preferido</mat-label>
+                <mat-select value="Português(Brasil)">
+                    <mat-option value="Português(Brasil)">Português(Brasil)</mat-option>
+                    <mat-option value="Inglês">Inglês</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <span class="details">Escolha seu idioma preferido</span>
         </mat-card>
 
         <mat-card>
-            <mat-card-header>Sair</mat-card-header>
+            <mat-card-header>Sair do perfil</mat-card-header>
+            <button matButton="outlined" class="profile_button">Sair</button>
         </mat-card>
     </section>
 </div>

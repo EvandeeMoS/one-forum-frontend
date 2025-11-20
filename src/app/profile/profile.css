@@ -31,6 +31,7 @@ mat-card{
 mat-card-header{
     font-size: 18px;
     color: #0a0a0a;
+    padding: 0;
 }
 
 /*Perfil do usuário*/
@@ -41,6 +42,7 @@ mat-card-header{
 .avatar{
     width: 100px;
     border-radius: 100%;
+    margin-bottom: 18px;
 }
 
 /*Atividades*/
@@ -106,4 +108,37 @@ grid-row-gap: 24px;
     background-color: #f3f3f5;
     color: #575656;
     border-radius: 8px;
+}
+
+.details{
+    font-size: 14px;
+    color: #6A7282;
+}
+
+/*Segurança*/
+.header_icon{
+    display: flex;
+    align-items: center;
+}
+
+.security{
+    background-color: #FFE2E2;
+    color: #E7000B;
+}
+
+.profile_button{
+    width: fit-content;
+    margin-top: 24px;
+}
+
+.config{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 12px;
+    margin: 15px 0 0 22px;
+}
+
+mat-divider{
+    margin: 24px 0;
 }
