@@ -1,6 +1,6 @@
 <html>
-<h1 class="title">My Account</h1>
-<h2 class="subtitle">Manage your profile information</h2>
+<h1 class="title">Minha conta</h1>
+<h2 class="subtitle">Gerencie as informações do seu pefil</h2>
 
 <div class="container">
     <section class="user">
@@ -42,21 +42,13 @@
         <mat-card>
             <div class="information_header">
                 <mat-card-header>Informações do perfil</mat-card-header>
-                <button matButton="outlined"><mat-icon>edit</mat-icon>Editar</button>
+                <button matButton="outlined" (click)="openDialog()"><mat-icon>edit</mat-icon>Editar</button>
             </div>
             <div class="information_body">
-                <div class="div1">
-                    <span>Nome</span>
-                    <p class="information_data">John</p>
-                </div>
-                <div class="div2">
-                    <label>Sobrenome</label>
-                    <p class="information_data">Doe</p>
-                </div>
-                <div class="div3">
-                    <label>E-mail</label>
-                    <p class="information_data">john@email.com</p>
-                </div>
+                <span>Nome Completo</span>
+                <p class="information_data">John Doe</p>
+                <span>E-mail</span>
+                <p class="information_data">john@email.com</p>
             </div>
             <span class="details">O e-mail não pode ser alterado</span>
         </mat-card>
