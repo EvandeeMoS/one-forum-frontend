@@ -19,7 +19,7 @@ html{
 
 .container{
     display: grid;
-    grid-template-columns: 25% 70%;
+    grid-template-columns: 20rem 56rem;
     justify-content: center;
 }
 
