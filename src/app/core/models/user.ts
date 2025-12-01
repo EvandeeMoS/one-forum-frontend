@@ -1,8 +1,18 @@
 export interface User {
   id: number;
+  email: string;
+  password: string;
   createdAt: string;
-  profileName: string;
-  profilePhoto: string;
+  updateAt: string;
+  profile: Profile;
+  emailVerified: boolean;
+  locked: boolean;
+  deleted: boolean;
+}
+
+export interface Profile {
+  name: string;
+  photo: string;
 }
 
 export interface UserEditRequest {

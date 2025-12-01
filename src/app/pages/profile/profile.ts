@@ -31,8 +31,13 @@ export class Profile {
       this.user.set({
         id: user.id,
         createdAt: user.createdAt,
-        profileName: user.profileName,
-        profilePhoto: user.profilePhoto
+        updateAt: user.updateAt,
+        email: user.email,
+        password: user.password,
+        profile: user.profile,
+        emailVerified: user.emailVerified,
+        locked: user.locked,
+        deleted: user.deleted
       })
     })
   }

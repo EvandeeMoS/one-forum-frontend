@@ -7,8 +7,9 @@
     <section class="user">
         <!--Usuário-->
         <mat-card class="user_profile">
-            <img mat-card-image class="avatar" [src]="user().profilePhoto">
-            <mat-card-header class="title_card">{{user().profileName}}</mat-card-header>
+            <img mat-card-image class="avatar" [src]="user().profile.photo">
+            <mat-card-header class="title_card">{{user().profile.name}}</mat-card-header>
+            <span class="details">{{user().email}}</span>
         </mat-card>
 
         <!--Atividades-->
@@ -49,9 +50,9 @@
             </div>
             <div class="information_body">
                 <span>Nome de Usuário</span>
-                <p class="information_data">{{user().profileName}}</p>
+                <p class="information_data">{{user().profile.name}}</p>
                 <span>Url da foto de perfil</span>
-                <p class="information_data">{{user().profilePhoto}}</p>
+                <p class="information_data">{{user().profile.photo}}</p>
             </div>
         </mat-card>
 

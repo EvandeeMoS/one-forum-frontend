@@ -32,8 +32,8 @@ export class EditDialog{
 
   enviar() {
     const data = {
-        name: this.user().profileName,
-        photo: this.user().profilePhoto
+        name: this.user().profile.name,
+        photo: this.user().profile.photo
     }
 
     this.userService.editUser(this.userId, data).subscribe({
