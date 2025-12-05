@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from '@angular/material/input';
 import { HomeService } from '../../home.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-search-bar',
@@ -20,7 +21,23 @@ export class SearchBar {
   searchFieldValue = "";
   placeholder = input("");
 
+  initUrlCheckSubscription?: Subscription;
+
+  ngOnInit() {
+    this.initUrlCheckSubscription = this.homeService.filters$.subscribe(filters => {
+      this.searchFieldValue = filters.search ?? "";
+    })
+  }
+
+  ngOnDestroy() {
+    this.initUrlCheckSubscription?.unsubscribe();
+  }
+
   enterPressed() {
-    this.homeService.updateSearchBarInput(this.searchFieldValue)
+    if (this.searchFieldValue === '') {
+      this.homeService.setFilters({search: undefined});
+      return
+    }
+    this.homeService.setFilters({search: this.searchFieldValue})
   }
 }

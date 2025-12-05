@@ -32,11 +32,20 @@
                 </button>
             </div>
         </div>
-        @if (this.statusFlag() === StatusFlagEnum.OK && this.homeService.topicListRes().totalElements > 0) {
-            @for (topic of this.homeService.topicListRes().list; track $index) {
+        @if (this.statusFlag() === StatusFlagEnum.OK && this.totalElements > 0) {
+            @for (topic of this.topics; track $index) {
                 <app-topic-card [topic]="topic"></app-topic-card>
             }
-            <app-pagination></app-pagination>
+            <div class="pages-list">
+                <mat-paginator
+                    [length]="this.totalElements"
+                    [pageIndex]="this.pageIndex"
+                    [pageSize]="this.pageSize"
+                    [pageSizeOptions]="[5, 10, 25, 50]"
+                    [showFirstLastButtons]="true"
+                    (page)="updatePage($event)"
+                ></mat-paginator>
+            </div>  
         }
         @else {
             <div class="message-topic-list-container">

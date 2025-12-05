@@ -5,7 +5,7 @@ import { Injectable, signal } from '@angular/core';
 })
 export class AuthService {
   userState = signal({
-    userId: 2,
+    userId: 1,
     userName: 'Pedro'
   })
 

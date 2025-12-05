@@ -14,8 +14,12 @@
                         <span>Categorias</span>
                     </div>
                     <mat-chip-listbox class="mat-mdc-chip-set-stacked">
-                    @for (category of this.allCategories(); track $index) {
-                            <mat-chip-option (selectionChange)="selectFilter($event, category.id)">
+                    @for (category of this.allCategories(); track category.id) {
+                            <mat-chip-option 
+                                [attr.data-category-id]="category.id"
+                                #categoryOpt 
+                                (selectionChange)="selectFilter($event, category.id)"
+                            >
                                 <span>{{category.name}}</span>
                                 <span matChipTrailingIcon>{{category.topicCount}}</span>
                             </mat-chip-option>

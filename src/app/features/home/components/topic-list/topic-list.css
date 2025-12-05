@@ -40,3 +40,9 @@
 .loading-spinner {
     size: 2rem;
 }
+
+.pages-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
