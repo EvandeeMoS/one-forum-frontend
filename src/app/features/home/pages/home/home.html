@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="nav-and-actions">
+        <div class="buttons-row">
+            <div class="nav-buttons-container">
+                <button matButton="filled">
+                    <mat-icon>tab</mat-icon>
+                    <span>Feed</span>
+                </button>
+            </div>
+            <button matButton="elevated" [disabled]="!(this.authService.isLogged$ | async)" (click)="createTopicBtnClick()">Criar tópico</button>
+        </div>
+        <app-search-bar placeholder="Pesquise por título ou nome do autor"></app-search-bar>
+    </div>
+    <div>
+        <app-topic-list></app-topic-list>
+    </div>
+</div>
