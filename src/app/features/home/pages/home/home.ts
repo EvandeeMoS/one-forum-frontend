@@ -1,6 +1,5 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { MatButtonModule } from "@angular/material/button";
-import { MatInputModule } from '@angular/material/input';
 import { TopicList } from "../../components/topic-list/topic-list";
 import { AuthService } from '../../../../core/services/auth.service';
 import { HomeService } from '../../home.service';
@@ -10,16 +9,17 @@ import { TopicDialog } from '../../../../shared/components/topic-dialog/topic-di
 import { MatDialog } from '@angular/material/dialog';
 import { TopicService } from '../../../../core/services/topics.service';
 import { CategoryService } from '../../category.service';
+import { MatIcon } from "@angular/material/icon";
 
 @Component({
   selector: 'app-home',
   imports: [
-    MatButtonModule, 
-    MatInputModule, 
+    MatButtonModule,
     TopicList,
     SearchBar,
     AsyncPipe,
-  ],
+    MatIcon
+],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -31,10 +31,6 @@ export class Home {
   categoryService = inject(CategoryService);
 
   ngOnInit() {
-  }
-
-  logoutClick() {
-    this.authService.logout();
   }
 
   createTopicBtnClick() {

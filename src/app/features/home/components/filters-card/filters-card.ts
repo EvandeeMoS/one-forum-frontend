@@ -1,12 +1,10 @@
-import { Component, DestroyRef, ElementRef, inject, QueryList, signal, ViewChildren } from '@angular/core';
-import { MatCardModule } from "@angular/material/card";
+import { Component, DestroyRef, inject, QueryList, signal, ViewChildren } from '@angular/core';
 import { MatIconModule } from "@angular/material/icon";
 import { MatExpansionModule } from "@angular/material/expansion";
 import { CategoryService } from '../../category.service';
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { MatChipOption, MatChipSelectionChange, MatChipsModule } from "@angular/material/chips";
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from "@angular/material/form-field";
 import { Category } from '../../../../core/models/category.model';
 import { HomeService } from '../../home.service';
 import { StatusFlag } from '../../model/status-flag.model';
@@ -17,12 +15,10 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 @Component({
   selector: 'app-filters-card',
   imports: [
-    MatCardModule, 
     MatIconModule, 
     MatProgressSpinnerModule,
     MatChipsModule, 
     MatButtonModule, 
-    MatFormFieldModule,
     MatExpansionModule,
   ],
   templateUrl: './filters-card.html',

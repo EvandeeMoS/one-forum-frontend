@@ -1,4 +1,4 @@
-import { Component, computed, inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { TopicListCard } from '../topic-list-card/topic-list-card';
 import { MatAnchor, MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";

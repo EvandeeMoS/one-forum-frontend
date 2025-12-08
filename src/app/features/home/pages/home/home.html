@@ -2,8 +2,10 @@
     <div class="nav-and-actions">
         <div class="buttons-row">
             <div class="nav-buttons-container">
-                <button matButton="filled">Feed</button>
-                <button matButton="text" (click)="logoutClick()">Explorar</button>
+                <button matButton="filled">
+                    <mat-icon>tab</mat-icon>
+                    <span>Feed</span>
+                </button>
             </div>
             <button matButton="elevated" [disabled]="!(this.authService.isLogged$ | async)" (click)="createTopicBtnClick()">Criar tópico</button>
         </div>
