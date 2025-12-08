@@ -7,20 +7,22 @@ import { AnswersContainer } from '../../components/answers-container/answers-con
 import { ActivatedRoute } from '@angular/router';
 import { TopicService } from '../../../../core/services/topics.service';
 import { Topic } from '../../../../core/models/topics';
+import { Location } from '@angular/common';
 import { CommentsService } from '../../../../core/services/comemments.service';
 import { interval, Subscription } from 'rxjs';
-import { CommonModule } from '@angular/common';
+
 import { AnsWer } from '../../../../core/models/comments';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'topic-detail',
-  imports: [CommonModule, TopicCard, AnswerForm, MatButtonModule, MatIconModule, AnswersContainer],
+  imports: [TopicCard, AnswerForm, MatButtonModule, MatIconModule, AnswersContainer],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './topic-detail.html',
   styleUrls: ['./topic-detail.css'],
 })
 export class TopicDetail {
+  private readonly location = inject(Location);
   private readonly route = inject(ActivatedRoute);
   private readonly topicId = this.route.snapshot.paramMap.get('id');
   private readonly topicService = inject(TopicService);
@@ -77,5 +79,9 @@ export class TopicDetail {
 
   protected redirect(): void {
     window.history.back();
+  }
+
+  backToPreviousPage() {
+    this.location.back();
   }
 }

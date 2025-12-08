@@ -7,6 +7,11 @@ export const routes: Routes = [
       import('./features/topics/pages/topic-detail/topic-detail').then((m) => m.TopicDetail),
   },
   {
+    path: '',
+    loadComponent: () =>
+      import('./features/home/pages/home/home').then((m) => m.Home),
+  },
+  {
     path: 'register',
     loadComponent: () =>
       import('./features/auth/pages/register/register').then((m) => m.Register),
