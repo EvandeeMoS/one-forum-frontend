@@ -3,11 +3,11 @@ import { Profile } from './pages/profile/profile';
 import { Home } from './pages/home/home';
 
 export const routes: Routes = [
-    {
-        path: 'profile/:id',
-        component: Profile,
-        title: 'Profile'
-    },
+  {
+    path: 'profile/:id',
+    component: Profile,
+    title: 'Profile'
+  },
   {
     path: 'topics/:id',
     loadComponent: () =>
@@ -26,5 +26,10 @@ export const routes: Routes = [
   {
     path: 'login',
     loadComponent: () => import('./features/auth/pages/login/login').then((m) => m.Login),
+  },
+  {
+    path: 'confirm-account',
+    loadComponent: () =>
+      import('./pages/confirm-account-alert/confirm-account-alert').then((m) => m.ConfirmAccountAlert),
   }
 ];
