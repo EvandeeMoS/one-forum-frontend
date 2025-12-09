@@ -27,5 +27,6 @@ export class App {
   noTopbarEndpoints: String[] = [
     "/login",
     "/register",
+    "/confirm-account"
   ]
 }
