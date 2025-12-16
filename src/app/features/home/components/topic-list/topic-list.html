@@ -67,8 +67,7 @@
                 }
                 @else {
                     <mat-icon class="fail-icon">question_mark</mat-icon>
-                    <p>Não existe nenhum tópico com essas características no momento...</p> 
-                    <p><strong>Seja o primeiro a postar!</strong></p>
+                    <p>{{ emptyTopicsMessage() }}</p> 
                 }
             </div>
         }

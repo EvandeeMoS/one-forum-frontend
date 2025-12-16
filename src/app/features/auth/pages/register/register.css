@@ -148,7 +148,7 @@ button[type="submit"] mat-icon,
 .login-text button {
   background: transparent;
   border: none;
-  color: var(--button-primary-text);
+  color: var(--text-primary);
   cursor: pointer;
   font-weight: 500;
   text-decoration: underline;
@@ -160,4 +160,5 @@ button[type="submit"] mat-icon,
 
 .login-text button:hover {
   background: var(--button-primary-bg);
+  color: var(--button-primary-text);
 }

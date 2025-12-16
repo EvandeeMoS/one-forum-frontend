@@ -32,6 +32,8 @@ export class TopicList {
   topics: InputSignal<Topic[]> = input.required();
   statusFlag: InputSignal<StatusFlag> = input<StatusFlag>(StatusFlag.OK);
 
+  emptyTopicsMessage = input("Não foram encontrados tópicos...");
+
   totalElements: InputSignal<number> = input.required();
   pageIndex = input(0);
   pageSize = input(10);

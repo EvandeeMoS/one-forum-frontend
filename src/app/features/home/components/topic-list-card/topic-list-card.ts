@@ -7,6 +7,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { Topic } from '../../../../core/models/topics';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import * as StringUtils from '../../../../shared/utils/string.utils';
 
 @Component({
   selector: 'app-topic-card',
@@ -24,6 +25,8 @@ export class TopicListCard {
   NUM_OF_CATEGORIES_TO_BE_SHOWN = 5;
   
   topic: InputSignal<Topic> = input.required();
+
+  topicResume = computed(() => StringUtils.truncate(this.topic().content!, this.topic().content!.length - 3));
 
   categoriesShown = computed(() => 
     this.topic().categories.length > this.NUM_OF_CATEGORIES_TO_BE_SHOWN ?

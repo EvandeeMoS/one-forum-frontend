@@ -15,9 +15,11 @@
   <section class="user">
     <!--Usuário-->
     <mat-card class="user_profile">
-      <img mat-card-image class="avatar" [src]="user().profilePhoto" />
-      <mat-card-header class="title_card">{{ user().profileName }}</mat-card-header>
-      <span class="details">{{ user().email }}</span>
+      <mat-card-content>
+        <img mat-card-image class="avatar" [src]="user().profilePhoto" />
+        <h3>{{ user().profileName }}</h3>
+        <span class="details">{{ user().email }}</span>
+      </mat-card-content>
     </mat-card>
 
     <!--Atividades-->
@@ -183,6 +185,7 @@
           [filtersCard]="false" 
           [topActions]="false"
           (paginationChange)="handlePaginationChange($event)"
+          emptyTopicsMessage="Parece que esse usuário não criou nenhum tópico ainda..."
         ></app-topic-list>
       </mat-card-content>
     </mat-card>

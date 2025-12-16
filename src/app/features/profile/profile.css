@@ -42,11 +42,21 @@ mat-card{
     background-color: var(--bg-secondary);
     padding: 24px;
     border-radius: 12px;
-    box-shadow: 0 1px 3px var(--card-shadow);
+    /* box-shadow: 0 1px 3px var(--card-shadow); */
+    box-shadow: none;
+    border: 1px solid var(--border-color);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 mat-card-header{
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.user_profile mat-card-content {
     font-size: 18px;
     font-weight: 600;
     color: var(--text-primary);

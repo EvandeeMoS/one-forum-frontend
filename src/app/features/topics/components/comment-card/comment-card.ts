@@ -17,11 +17,12 @@ import { Comment } from '../../../../core/models/comments';
 import { AuthService } from '../../../../core/services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { getInitials } from '../../../../shared/utils/string.utils';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'comment-card',
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatButtonModule, FormsModule],
+  imports: [CommonModule, MatIconModule, MatButtonModule, FormsModule, RouterLink],
   templateUrl: './comment-card.html',
   styleUrls: ['./comment-card.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,

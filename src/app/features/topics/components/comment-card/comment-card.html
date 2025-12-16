@@ -15,7 +15,7 @@
       </div>
 
       <div class="details">
-        <span class="name" id="comment-title-{{ comment().id }}">{{ comment().userProfileName }}</span>
+        <a [routerLink]="'/profile/' + comment().userId" class="name" id="comment-title-{{ comment().id }}">{{ comment().userProfileName }}</a>
         <span class="time">{{ comment().createdAt | date : 'dd/MM/yyyy HH:mm' }}</span>
       </div>
     </div>

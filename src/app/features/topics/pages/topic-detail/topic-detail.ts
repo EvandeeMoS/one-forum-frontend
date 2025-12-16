@@ -94,10 +94,6 @@ export class TopicDetail {
     this.snackBar.open('Comentário removido com sucesso!', 'Fechar', { duration: 3000 }); 
   }
 
-  protected redirect(): void {
-    window.history.back();
-  }
-
   backToPreviousPage() {
     this.location.back();
   }
