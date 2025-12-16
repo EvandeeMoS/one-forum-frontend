@@ -25,6 +25,10 @@ mat-card-title {
     width: 100%;
 }
 
+mat-card-content {
+    padding: 0;
+}
+
 mat-card-footer {
     width: 100%;
 
