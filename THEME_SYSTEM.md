@@ -142,9 +142,9 @@ export class MyComponent {
 
 ✅ **Features - Topics:**
 - Topic Card
-- Answer Card
-- Answer Form
-- No Answers Card
+- Comment Card
+- Comment Form
+- No Comments Card
 
 ✅ **Shared:**
 - Todos os componentes de diálogo

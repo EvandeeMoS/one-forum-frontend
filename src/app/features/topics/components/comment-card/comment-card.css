@@ -51,24 +51,29 @@
   align-items: center;
   justify-content: center;
   gap: 12px;
-  
-  .name {
-    font-weight: 600;
-    font-size: 15px;
-    color: #0f172a;
-  }
+}
 
-  .time {
-    font-size: 13px;
-    color: #64748b;
-  }
+.name {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.name:hover {
+  color: var(--text-accent);
+}
+
+.time {
+  font-size: 13px;
+  color: var(--text-secondary);
 }
 
 .text {
   margin-top: 6px;
   margin-left: 50px;
   font-size: 15px;
-  color: #0f172a;
+  color: var(--text-primary);
 }
 
 .delete-btn mat-icon {
