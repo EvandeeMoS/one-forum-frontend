@@ -31,7 +31,24 @@ export class TopicDetail {
 
   private refreshSub!: Subscription;
 
-  protected topic: WritableSignal<Topic> = signal({} as Topic);
+  protected topic: WritableSignal<Topic> = signal<Topic>({
+    id: 0,
+    title: '',
+    likes: 0,
+    content: null,
+    likedByCurrentUser: false,
+    author: {
+      id: 0,
+      createdAt: '',
+      profile: {
+        name: '',
+        photo: ''
+      }
+    },
+    createdAt: '',
+    updatedAt: '',
+    categories: [],
+  });
   protected comments: WritableSignal<Comment[]> = signal([]);
 
   ngOnInit(): void {
