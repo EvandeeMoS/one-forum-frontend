@@ -1,4 +1,4 @@
-.no-answers {
+.no-comments {
   margin-top: 1rem;
   padding: 2rem 1rem;
   background: var(--bg-secondary);
@@ -14,7 +14,7 @@
   font-size: 0.95rem;
 }
 
-.no-answers .icon {
+.no-comments .icon {
   font-size: 2rem;
   margin-bottom: 0.5rem;
   opacity: 0.5;

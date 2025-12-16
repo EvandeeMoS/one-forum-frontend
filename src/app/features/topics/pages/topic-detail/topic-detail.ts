@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject, signal, WritableSignal } from '@angular/core';
 import { TopicCard } from '../../components/topic-card/topic-card';
-import { AnswerForm } from '../../components/answer-form/answer-form';
+import { CommentForm } from '../../components/comment-form/comment-form';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { AnswersContainer } from '../../components/answers-container/answers-container';
+import { CommentsContainer } from '../../components/comments-container/comments-container';
 import { ActivatedRoute } from '@angular/router';
 import { TopicService } from '../../../../core/services/topics.service';
 import { Topic } from '../../../../core/models/topics';
@@ -11,12 +11,12 @@ import { Location } from '@angular/common';
 import { CommentsService } from '../../../../core/services/comments.service';
 import { interval, Subscription } from 'rxjs';
 
-import { AnsWer } from '../../../../core/models/comments';
+import { Comment } from '../../../../core/models/comments';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'topic-detail',
-  imports: [TopicCard, AnswerForm, MatButtonModule, MatIconModule, AnswersContainer],
+  imports: [TopicCard, CommentForm, MatButtonModule, MatIconModule, CommentsContainer],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './topic-detail.html',
   styleUrls: ['./topic-detail.css'],
@@ -32,7 +32,7 @@ export class TopicDetail {
   private refreshSub!: Subscription;
 
   protected topic: WritableSignal<Topic> = signal({} as Topic);
-  protected answers: WritableSignal<AnsWer[]> = signal([]);
+  protected comments: WritableSignal<Comment[]> = signal([]);
 
   ngOnInit(): void {
     this.loadTopic();
@@ -52,11 +52,11 @@ export class TopicDetail {
 
   private loadComments(): void {
     this.commentsService.getAll(Number(this.topicId)).subscribe((res) => {
-      this.answers.set(res.content);
+      this.comments.set(res.content);
     });
   }
 
-  onSubmitAnswer(text: string): void {
+  onSubmitComment(text: string): void {
     if (!text?.trim()) return;
 
     this.commentsService.create(Number(this.topicId), { content: text }).subscribe({
@@ -71,9 +71,9 @@ export class TopicDetail {
     });
   }
 
-  removeAnswer(id: number): void {
-    const updatedAnswers = this.answers().filter((answer) => answer.id !== id);
-    this.answers.set(updatedAnswers);
+  removeComment(id: number): void {
+    const updatedComments = this.comments().filter((comment) => comment.id !== id);
+    this.comments.set(updatedComments);
     this.snackBar.open('Comentário removido com sucesso!', 'Fechar', { duration: 3000 }); 
   }
 

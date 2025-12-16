@@ -1,7 +1,0 @@
-<h3 aria-live="polite">{{ answers().length }} Resposta{{ answers().length !== 1 ? 's' : '' }}</h3>
-
-@if (answers().length === 0) {
-<no-answers-card></no-answers-card>
-} @else { @for (answer of answers(); track $index) {
-<answer-card [answer]="answer" (deleteAnswer)="deleteAnswer.emit(answer.id)"></answer-card>
-} }

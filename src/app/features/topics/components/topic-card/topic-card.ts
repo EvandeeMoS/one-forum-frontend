@@ -32,7 +32,7 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class TopicCard {
   readonly topic = model.required<Topic>();
-  readonly answers = input<number>(0);
+  readonly comments = input<number>(0);
 
   private readonly authService = inject(AuthService);
   private readonly topicService = inject(TopicService);
