@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'no-answers-card',
+  selector: 'no-comments-card',
   imports: [MatIconModule],
-  templateUrl: './no-answers-card.html',
-  styleUrl: './no-answers-card.css',
+  templateUrl: './no-comments-card.html',
+  styleUrl: './no-comments-card.css',
 })
-export class NoAnswersCard {}
+export class NoCommentsCard {}

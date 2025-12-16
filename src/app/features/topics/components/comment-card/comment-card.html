@@ -2,32 +2,32 @@
   <div class="top-row">
     <div class="user-info">
       <div class="avatar" aria-label="User profile photo">
-        @if (answer().userProfilePhoto) {
+        @if (comment().userProfilePhoto) {
         <img
-          [src]="answer().userProfilePhoto"
-          alt="Profile photo of {{ answer().userProfileName }}"
+          [src]="comment().userProfilePhoto"
+          alt="Profile photo of {{ comment().userProfileName }}"
         />
         } @else {
         <div class="avatar-fallback" aria-label="User initials">
-          {{ getInitials(answer().userProfileName) }}
+          {{ getInitials(comment().userProfileName) }}
         </div>
         }
       </div>
 
       <div class="details">
-        <span class="name" id="answer-title-{{ answer().id }}">{{ answer().userProfileName }}</span>
-        <span class="time">{{ answer().createdAt | date : 'dd/MM/yyyy HH:mm' }}</span>
+        <a [routerLink]="'/profile/' + comment().userId" class="name" id="comment-title-{{ comment().id }}">{{ comment().userProfileName }}</a>
+        <span class="time">{{ comment().createdAt | date : 'dd/MM/yyyy HH:mm' }}</span>
       </div>
     </div>
 
     @if (showButtons()) {
     <div class="buttons">
       @if (!isEditing()) {
-      <button matIconButton aria-label="Edit your answer" (click)="startEdit()">
+      <button matIconButton aria-label="Edit your comment" (click)="startEdit()">
         <mat-icon>edit</mat-icon>
       </button>
       }
-      <button class="delete-btn" matIconButton aria-label="Delete this answer" (click)="delete()">
+      <button class="delete-btn" matIconButton aria-label="Delete this comment" (click)="delete()">
         <mat-icon>delete</mat-icon>
       </button>
     </div>
@@ -35,13 +35,13 @@
   </div>
 
   @if (!isEditing()) {
-  <p class="text" aria-label="Answer content">{{ answer().content }}</p>
+  <p class="text" aria-label="Comment content">{{ comment().content }}</p>
   } @if (isEditing()) {
   <textarea
     class="edit-box"
     [(ngModel)]="editContent"
     rows="4"
-    aria-label="Edit answer content"
+    aria-label="Edit comment content"
   ></textarea>
 
   <div class="edit-actions">

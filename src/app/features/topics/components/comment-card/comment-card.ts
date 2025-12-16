@@ -12,23 +12,24 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { TokenService } from '../../../../core/services/token.service';
-import { CommentsService } from '../../../../core/services/comemments.service';
-import { AnsWer } from '../../../../core/models/comments';
+import { CommentsService } from '../../../../core/services/comments.service';
+import { Comment } from '../../../../core/models/comments';
 import { AuthService } from '../../../../core/services/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { getInitials } from '../../../../shared/utils/string.utils';
+import { RouterLink } from "@angular/router";
 
 @Component({
-  selector: 'answer-card',
+  selector: 'comment-card',
   standalone: true,
-  imports: [CommonModule, MatIconModule, MatButtonModule, FormsModule],
-  templateUrl: './answer-card.html',
-  styleUrls: ['./answer-card.css'],
+  imports: [CommonModule, MatIconModule, MatButtonModule, FormsModule, RouterLink],
+  templateUrl: './comment-card.html',
+  styleUrls: ['./comment-card.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AnswerCard {
-  public answer = input.required<AnsWer>();
-  public deleteAnswer = output<void>();
+export class CommentCard {
+  public comment = input.required<Comment>();
+  public deleteComment = output<void>();
 
   private readonly tokenService = inject(TokenService);
   private readonly commentsService = inject(CommentsService);
@@ -37,7 +38,7 @@ export class AnswerCard {
 
   protected readonly user = computed(() => this.authService.currentUser());
   protected readonly showButtons = computed(() => {
-    return this.answer()?.userId === this.user()?.id;
+    return this.comment()?.userId === this.user()?.id;
   });
   protected readonly isEditing = signal(false);
 
@@ -45,7 +46,7 @@ export class AnswerCard {
   protected editContent = '';
 
   protected startEdit(): void {
-    this.editContent = this.answer()?.content ?? '';
+    this.editContent = this.comment()?.content ?? '';
     this.isEditing.set(true);
   }
 
@@ -65,10 +66,10 @@ export class AnswerCard {
       return;
     }
 
-    const topicId = this.answer()?.topicId;
-    const answerId = this.answer()?.id;
+    const topicId = this.comment()?.topicId;
+    const commentId = this.comment()?.id;
 
-    if (!topicId || !answerId) {
+    if (!topicId || !commentId) {
       this.snackBar.open('Erro ao identificar o comentário', 'Fechar', {
         duration: 3000,
         horizontalPosition: 'end',
@@ -77,9 +78,9 @@ export class AnswerCard {
       return;
     }
 
-    this.commentsService.update(topicId, answerId, { content: newContent }).subscribe({
+    this.commentsService.update(topicId, commentId, { content: newContent }).subscribe({
       next: () => {
-        this.answer().content = newContent;
+        this.comment().content = newContent;
         this.isEditing.set(false);
         this.editContent = '';
         this.snackBar.open('Comentário atualizado com sucesso', 'Fechar', {
@@ -100,10 +101,10 @@ export class AnswerCard {
   }
 
   protected delete(): void {
-    const topicId = this.answer()?.topicId;
-    const answerId = this.answer()?.id;
+    const topicId = this.comment()?.topicId;
+    const commentId = this.comment()?.id;
 
-    if (!topicId || !answerId) {
+    if (!topicId || !commentId) {
       this.snackBar.open('Erro ao identificar o comentário', 'Fechar', {
         duration: 3000,
         horizontalPosition: 'end',
@@ -112,18 +113,19 @@ export class AnswerCard {
       return;
     }
 
-    this.commentsService.delete(topicId, answerId).subscribe({
-      next: (res: any) => {
-        const status = res?.status ?? res?.statusCode ?? res?.code;
+    this.commentsService.delete(topicId, commentId).subscribe({
+      next: (res) => {
+        const status = res.status;
 
         if (status === 204) {
-          this.deleteAnswer.emit();
+          this.deleteComment.emit();
           this.snackBar.open('Comentário excluído com sucesso', 'Fechar', {
             duration: 3000,
             horizontalPosition: 'end',
             verticalPosition: 'top',
           });
         } else {
+          console.log(status)
           console.error('Failed to delete comment, status:', status);
           this.snackBar.open('Falha ao excluir comentário', 'Fechar', {
             duration: 3000,
